@@ -1,0 +1,17 @@
+Implements 5 pages:
+index.html
+about.html
+siemens.html
+ericsson.html
+nokia.html
+
+Use templates:
+index.html.png
+about.html.png
+siemens.html.png
+ericsson.html.png
+nokia.html.png
+
+Link Home -> index.html
+Link About US -> about.html
+Click by phones pictures should be link on pages about phones respectively
