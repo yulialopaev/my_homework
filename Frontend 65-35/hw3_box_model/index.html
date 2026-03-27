@@ -2,48 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Super Shop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="icon" type="image/png" href="img/favicon-96x96.png">
-    <link rel="stylesheet" href="hw2_style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="img/favicon-96x96.png" rel="icon" type="image/png">
+    <link href="style/hw2_style.css" rel="stylesheet">
 </head>
 <body>
-<div>
-    <img src="img/logo.png" alt="Logo">
-    <p>Super Shop</p>
-</div>
-<hr>
-<p>Home &nbsp; <a href="about.html" target="_blank">About us</a></p>
-<hr>
+<header>
+    <img alt="Logo" class="logo" src="img/logo.png">
+    <h1>Super Shop</h1>
+    <hr>
+    <nav>
+        <strong>Home</strong> &nbsp; &nbsp;
+        <a href="about.html">About us</a>
+    </nav>
+    <hr>
+</header>
+<main>
+    <table class="main_page">
+        <tbody>
+        <tr>
+            <td>
+                <p>Nokia 6310i</p>
+                <a href="nokia.html"><img alt="Nokia 6310i" class="phone" src="img/phone2.jpg"></a>
+            </td>
+            <td>
+                <p>Ericsson T20s</p>
+                <a href="ericsson.html"><img alt="Ericsson T20s" class="phone" src="img/phone1.jpg"></a>
+            </td>
+            <td>
+                <p>Siemens A50</p>
+                <a href="siemens.html"><img alt="Siemens A50" class="phone" src="img/phone3.jpg"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-<table>
-    <thead>
-    <tr>
-        <th>Nokia 6310i</th>
-        <th>Ericsson T20s</th>
-        <th>Siemens A50</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <img src="img/phone2.jpg" alt="Nokia 6310i">
-        </td>
-        <td>
-            <img src="img/phone1.jpg" alt="Ericsson T20s">
-        </td>
-        <td>
-            <img src="img/phone3.jpg" alt="Siemens A50">
-        </td>
-    </tr>
-    </tbody>
-
-</table>
-<hr>
-
+    <hr>
+</main>
 <footer>
-    <p>&copy; 2019 <a href="about.html" target="_blank">Tel Ran</a></p>
+    <p>&copy; 2026 <a href="about.html" target="_blank">Tel Ran</a></p>
 </footer>
 </body>
 </html>

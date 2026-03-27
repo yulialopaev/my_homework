@@ -2,29 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Us</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="icon" type="image/png" href="img/favicon-96x96.png">
-    <link rel="stylesheet" href="hw2_style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Super Shop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="img/favicon-96x96.png" rel="icon" type="image/png">
+    <link href="style/hw2_style.css" rel="stylesheet">
 </head>
 <body>
-<div>
-    <img src="img/logo.png" alt="Logo">
-    <p>Super Shop</p>
-</div>
-<hr>
-<p>Home &nbsp; <a href="about.html" target="_blank">About us</a></p>
-<hr>
+<header>
+    <img alt="Logo" class="logo" src="img/logo.png">
+    <h1>Super Shop</h1>
+    <hr>
+    <nav>
+        <a href="index.html">Home</a> &nbsp; &nbsp;
+        <strong>About us</strong>
+    </nav>
+    <hr>
+</header>
+<main>
+    <table class="phone-page">
+        <tbody>
+        <tr>
+            <td>
+                <h2 class="about">About company</h2>
+            </td>
 
-<table>
-    <thead>
-    <tr>
-        <th><h2>About company</h2></th>
-        <th>Lorem, ipsum dolor sit amet consectetur </th>
-    </tr>
-    </thead>
-</table>
+            <td>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Harum adipisci eveniet quae repellat ullam ipsa! Tempora quia
+                    nam sed ipsam, nihil distinctio earum reprehenderit. Quae
+                    maiores commodi facilis eveniet atque.
+                </p>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Exercitationem, temporibus, desernut architecto autem
+                    excepturi facilis distinctio dignissimos quia ab est quos
+                    rerum laborum corrupti ut odit quae animi obcaecati molestias!
+                </p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
+    <hr>
+
+    <div>
+        <h2>Leave the message</h2>
+        <form action="#">
+            <table class="form_table">
+                <tbody>
+                <tr>
+                    <td class="card"><label for="userEmail">Email:</label></td>
+                    <td><input id="userEmail" type="email"></td>
+                </tr>
+
+                <tr>
+                    <td class="card"><label for="message">Message:</label></td>
+                    <td><textarea cols="35" id="message" rows="3"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td class="card">Gender:</td>
+                    <td>
+                        <label for="male">Male:</label><input id="male" name="gender"
+                                                              type="radio" value="male">
+                        <label for="female">Female:</label><input id="female" name="gender"
+                                                                  type="radio" value="female">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="buttons" colspan="2">
+                        <input type="submit" value="Send">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+
+    </div>
+</main>
+<footer>
+    <p>&copy; 2026 <a href="about.html" target="_blank">Tel Ran</a></p>
+</footer>
 </body>
 </html>
