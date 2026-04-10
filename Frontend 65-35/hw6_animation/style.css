@@ -1,7 +1,3 @@
-body {
-    background-color: burlywood;
-}
-
 .wrapper {
     border: 2px solid #333333;
     margin: 0 auto;
@@ -9,6 +5,7 @@ body {
     height: 800px;
     position: relative;
     border-radius: 25px;
+    background-color: #8C8C8C;
 }
 
 .square {
@@ -16,6 +13,7 @@ body {
     width: 300px;
     height: 300px;
     background-color: #333333;
+    border: 1px solid black;
 
     top: 250px;
     left: 250px;
@@ -39,6 +37,10 @@ body {
     animation-name: moveSecond;
 }
 
+.changing_text {
+
+}
+
 @keyframes moveFirst {
     0% {
         top: 250px;
@@ -48,7 +50,6 @@ body {
     50% {
         top: 0;
         left: 0;
-
         background-color: deeppink;
         border-radius: 50%;
     }
