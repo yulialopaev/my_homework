@@ -1,11 +1,11 @@
 .wrapper {
     border: 2px solid #333333;
-    margin: 0 auto;
     width: 800px;
     height: 800px;
     position: relative;
     border-radius: 25px;
     background-color: #8C8C8C;
+    margin: 15px auto 0 auto;
 }
 
 .square {
@@ -35,10 +35,54 @@
 
 .second {
     animation-name: moveSecond;
+
 }
 
-.changing_text {
+.second-square {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: #333333;
+    border: 1px solid black;
 
+    top: 250px;
+    left: 250px;
+
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cccccc;
+    font-weight: 700;
+    font-size: 22px;
+
+    animation: moveSecond 5s;
+}
+
+.first-square {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: #333333;
+    border: 1px solid black;
+
+    top: 250px;
+    left: 250px;
+
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cccccc;
+    font-weight: 700;
+    font-size: 22px;
+
+    animation: moveFirst 5s;
+}
+
+.first-square::after {
+    content: "I'm the 1st square";
+    animation: textSwap 5s;
 }
 
 @keyframes moveFirst {
@@ -82,5 +126,19 @@
         left: 250px;
         background-color: #333333;
         border-radius: 10px;
+    }
+}
+
+@keyframes textSwap {
+    0% {
+        content: "I'm the 1st square";
+    }
+
+    50% {
+        content: "I'm already a circle!";;
+    }
+
+   100% {
+        content: "I'm the 1st square";
     }
 }
