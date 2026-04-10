@@ -3,11 +3,12 @@ body {
 }
 
 .wrapper {
-    border: 1px solid blue;
+    border: 2px solid #333333;
     margin: 0 auto;
     width: 800px;
     height: 800px;
     position: relative;
+    border-radius: 25px;
 }
 
 .square {
