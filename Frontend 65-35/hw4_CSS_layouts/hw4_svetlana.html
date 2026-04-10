@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: brown;
+            position: absolute;
+        }
+
+        .task1 {
+            top: 75px;
+            left: 75px;
+        }
+
+        .task2 {
+            right: 0;
+            bottom: 0;
+        }
+
+        .task3-left {
+            top: 75px;
+            left: 25px;
+            background-color: chocolate;
+        }
+
+        .task3-right {
+            top: 75px;
+            right: 25px;
+        }
+
+        .task4-main {
+            width: 120px;
+            height: 120px;
+            background-color: aqua;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: -1;
+        }
+
+        .task4-top {
+            width: 80px;
+            height: 80px;
+            background-color: coral;
+            position: absolute;
+            top: 10px;
+            left: 90px;
+            z-index: 1;
+        }
+
+        .task4-top1 {
+            width: 120px;
+            height: 120px;
+            background-color: green;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Homework 4</h1>
+
+<h2>Task 1</h2>
+<div class="container">
+    <div class="box task1"></div>
+</div>
+
+<h2>Task 2</h2>
+<div class="container">
+    <div class="box task2"></div>
+</div>
+
+<h2>Task 3</h2>
+<div class="container">
+    <div class="box task3-left"></div>
+    <div class="box task3-right"></div>
+</div>
+
+<h2>Task 4</h2>
+<div class="container">
+    <div class="box task4-main"></div>
+    <div class="box task4-top"></div>
+    <div class="box task4-top1"></div>
+</div>
+</body>
+</html>

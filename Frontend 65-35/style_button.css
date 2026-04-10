@@ -1,0 +1,38 @@
+.container {
+    list-style-type: none;
+}
+
+h1 {
+    font-family: "Roboto", Medium, sans-serif;
+    color: #242424;
+    margin-left: 20px;
+}
+.button {
+    font-family: "Roboto", Medium, sans-serif;
+    font-size: 16pt;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: max-content;
+}
+
+.button_default {
+    background-color: #7BEBBC;
+    color: #242424;
+}
+
+.button_hover {
+    background-color: #24CC85;
+    color: #242424;
+}
+
+.button_pressed {
+    background-color: #19704C;
+    color: #FFFFFF;
+}
+
+.button_disable {
+    background-color: #E6E6E6;
+    color: #8C8C8C;
+}
+
