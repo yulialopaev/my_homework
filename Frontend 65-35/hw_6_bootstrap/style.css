@@ -1,0 +1,29 @@
+:root {
+    --bs-primary-rgb: 44, 62, 80;
+    --bs-info-rgb: 41, 128, 185;
+
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.contact-info {
+    font-size: 1.1em;
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7f8c8d;
+    border-top: 1px solid #ecf0f1;
+}
