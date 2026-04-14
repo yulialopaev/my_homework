@@ -138,7 +138,7 @@
         content: "I'm already a circle!";;
     }
 
-   100% {
-        content: "I'm the 1st square";
-    }
+   /*100% {*/
+   /*     content: "I'm the 1st square";*/
+   /* }*/
 }
