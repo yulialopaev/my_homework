@@ -1,5 +1,6 @@
 // --- Task 1. Weird Sum ---
 function weirdSum(a, b) {
+    // добавить проверку на входной тип!!!
     if (typeof a === 'boolean') {
         a = Number(a)
     }
@@ -10,11 +11,14 @@ function weirdSum(a, b) {
     return a + b
 }
 
+
+// Tests:
 console.log(weirdSum(5, 6))
 console.log(weirdSum('5', 6))
 console.log(weirdSum(true, 5))
 console.log(weirdSum(false, '5'))
 console.log('---------------------------------------------------------')
+
 
 // --- Task 2. Dangerous Comparison ---
 
@@ -25,22 +29,24 @@ function compare(a, b) {
     return (`== ${result1}, === ${result2}`)
 }
 
+// Tests:
 console.log(compare(false, 0))
+console.log(compare(NaN, NaN))
+console.log(compare(undefined, undefined))
+console.log(compare(null, null))
+console.log(compare(5, null))
 console.log(compare('2', 2))
 console.log(compare(5, 3))
+console.log(compare())
 console.log('---------------------------------------------------------')
 
 
 // --- Task 3. Real Number Check
 function isRealNumber(value) {
     if (typeof value == 'number' || typeof value == 'string') {
-        if (value === '') {
-            return false
-        }
+        if (value === '') return false
 
-        if (!isNaN(Number(value))) {
-            return true
-        }
+        if (!isNaN(Number(value))) return true
 
         return false
     }
@@ -48,6 +54,8 @@ function isRealNumber(value) {
     return false
 }
 
+
+// Tests:
 console.log(isRealNumber(''))
 console.log(isRealNumber(NaN))
 console.log(isRealNumber('hello'))
@@ -60,13 +68,13 @@ console.log('---------------------------------------------------------')
 
 // --- Task 4. Truthy or Falsy ---
 function checkValue(value) {
-    if (Boolean(value)) {
-        return (`Value is truthy`)
-    } else {
-        return (`Value is falsy`)
-    }
+    if (Boolean(value)) return (`Value is truthy`)
+
+    return (`Value is falsy`)
+
 }
 
+// Tests:
 console.log(checkValue(0))
 console.log(checkValue('hello'))
 console.log(checkValue(''))
@@ -81,6 +89,7 @@ function greet(name) {
     return `Hello, ${name}`
 }
 
+// Tests:
 console.log(greet('Anna'))
 console.log(greet(''))
 console.log(greet(123))
@@ -90,33 +99,35 @@ console.log('---------------------------------------------------------')
 
 // --- Task 6. Simple Calculator ---
 function calc(a, b, op) {
+    if ((typeof a === 'number' || typeof a === 'string')
+        && (typeof b === 'number' || typeof b === 'string')) {
 
-    if (op === '+') {
-        return a + b
+        let num_a = +a
+        let num_b = +b
+
+        if (isNaN(num_a) || isNaN(num_b)) return 'Error'
+
+        if (op === '+') return num_a + num_b
+        if (op === '-') return num_a - num_b
+        if (op === '*') return num_a * num_b
+        if (op === '/') {
+            if (num_b === 0) return 'Error'
+            return num_a / num_b
+        }
+        return 'Unknown operation'
     }
-
-    if (op === '-') {
-        return a - b
-    }
-
-    if (op === '*') {
-        return a * b
-    }
-
-    if (op === '/') {
-        if (b === 0) return 'Error'
-        return a / b
-    }
-
-    return 'Unknown operation'
+    return 'Error'
 }
 
-console.log(calc(5, 2, '+'))
-console.log(calc(2026, 1986, '-'))
-console.log(calc(594, 20, '*'))
-console.log(calc(5, 0, '/'))
-console.log(calc(5, 2, '%'))
-console.log('---------------------------------------------------------')
+// Tests:
+console.log(calc(5, 2, '+'));        // 7
+console.log(calc(2026, 1986, '-'));  // 40
+console.log(calc(594, 20, '*'));     // 11880
+console.log(calc(5, 0, '/'));        // Error
+console.log(calc(5, '0', '/'));      // Error (на ноль делить нельзя)
+console.log(calc(5, 2, '%'));        // Unknown operation
+console.log(calc('5', 5, '+'));      // 10
+console.log('---------------------------------------------------------');
 
 
 // --- Task 7. Explain the Output ---
@@ -146,6 +157,7 @@ function getType(value) {
     return typeof value
 }
 
+// Tests:
 console.log(getType(10))
 console.log(getType('10'))
 console.log(getType(true))
@@ -160,6 +172,7 @@ console.log('---------------------------------------------------------')
 // --- Task 9. String Repeater ---
 function repeat(str, n) {
     if (typeof str !== 'string') return 'Error'
+    if(typeof n !== 'number') return 'Error'
     if (n <= 0) return ''
 
     let result = ''
@@ -170,9 +183,11 @@ function repeat(str, n) {
     return result
 }
 
+// Tests:
 console.log(repeat("hi", 3))
 console.log(repeat("a", 0))
 console.log(repeat(5, 3))
+console.log(repeat('5', 6))
 console.log('---------------------------------------------------------')
 
 
@@ -184,6 +199,7 @@ function firstTruthy(a, b, c) {
     return null
 }
 
+// Tests:
 console.log(firstTruthy(10, 0, 2))
 console.log(firstTruthy(0, "", "hello"))
 console.log(firstTruthy(null, false, 5))
@@ -193,8 +209,9 @@ console.log('---------------------------------------------------------')
 
 // --- Task 11. Safe Division
 function safeDivide(a, b) {
-    let a_num = Number(a)
-    let b_num = Number(b)
+    // проверка типов (не стринг и не намбер)
+    let a_num = +a
+    let b_num = +b
 
     if (isNaN(a_num)) return 'Error'
     if (isNaN(b_num)) return 'Error'
@@ -204,6 +221,7 @@ function safeDivide(a, b) {
     return a_num / b_num
 }
 
+// Tests:
 console.log(safeDivide(10, 2))
 console.log(safeDivide('10', '2'))
 console.log(safeDivide('hello', 2))
