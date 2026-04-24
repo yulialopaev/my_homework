@@ -236,6 +236,8 @@ function safeDivide(a, b) {
 // +a && +b ? a / b : 'Error'
 // if +a && +b === true -> return a/b
 // if +a && +b === false -> return 'Error'
+
+// Тернарный оператор
 let tern = 7 == 5 ? 'oo' : 'uu'
 console.log(tern)
 
