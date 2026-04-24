@@ -92,8 +92,9 @@ console.log('---------------------------------------------------------')
 // --- Task 5. Smart Greeting ---
 function greet(name) {
     if (typeof name !== 'string') return 'Error'
-    if (name.trim() === '') return 'Hello, stranger'
-    return `Hello, ${name.trim()}`
+    // if (name.trim() === '') return 'Hello, stranger'
+    name = name.trim() || 'stranger'
+    return `Hello, ${name}`
 }
 
 // Tests:
