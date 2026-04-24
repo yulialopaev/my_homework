@@ -43,21 +43,24 @@ console.log('---------------------------------------------------------')
 
 // --- Task 3. Real Number Check
 function isRealNumber(value) {
-    if (typeof value == 'number' || typeof value == 'string') {
-        if (value === '') return false
-
-        if (!isNaN(Number(value))) return true
-
+    // boolean -? вынести отдельно
+    // null -?
+    if (value === null || value === undefined || value === '' || typeof value === 'boolean') {
+        // if (typeof value == 'number' || typeof value == 'string') {
         return false
     }
-
-    return false
+    // if (!isNaN(value)) return true
+    return !isNaN(value) && isFinite(value)
+    // return false
+    // }
+    // return false
 }
 
 
 // Tests:
 console.log(isRealNumber(''))
 console.log(isRealNumber(NaN))
+console.log(isRealNumber(null))
 console.log(isRealNumber('hello'))
 console.log(isRealNumber('123'))
 console.log(isRealNumber(123))
@@ -68,9 +71,9 @@ console.log('---------------------------------------------------------')
 
 // --- Task 4. Truthy or Falsy ---
 function checkValue(value) {
-    if (Boolean(value)) return (`Value is truthy`)
+    if (value) return (`Value '${value}' is truthy`)
 
-    return (`Value is falsy`)
+    return (`Value '${value}' is falsy`)
 
 }
 
@@ -79,20 +82,26 @@ console.log(checkValue(0))
 console.log(checkValue('hello'))
 console.log(checkValue(''))
 console.log(checkValue([]))
+console.log(checkValue(NaN))
+console.log(checkValue(null))
+console.log(checkValue(false))
+console.log(checkValue(undefined))
 console.log('---------------------------------------------------------')
 
 
 // --- Task 5. Smart Greeting ---
 function greet(name) {
     if (typeof name !== 'string') return 'Error'
-    if (name === '') return 'Hello, stranger'
-    return `Hello, ${name}`
+    if (name.trim() === '') return 'Hello, stranger'
+    return `Hello, ${name.trim()}`
 }
 
 // Tests:
 console.log(greet('Anna'))
 console.log(greet(''))
 console.log(greet(123))
+console.log(greet('123'))
+console.log(greet('   Yulia   '))
 console.log(greet(true))
 console.log('---------------------------------------------------------')
 
@@ -154,6 +163,8 @@ console.log('---------------------------------------------------------')
 // --- Task 8. Type Trick ---
 function getType(value) {
     if (value === null) return 'null'
+    // if (Array.isArray((value))) return 'object' // array - массив
+    // if (Number.isNaN(value)) return 'number'
     return typeof value
 }
 
@@ -172,15 +183,16 @@ console.log('---------------------------------------------------------')
 // --- Task 9. String Repeater ---
 function repeat(str, n) {
     if (typeof str !== 'string') return 'Error'
-    if(typeof n !== 'number') return 'Error'
+    if (typeof n !== 'number' || !Number.isFinite(n) || !Number.isInteger(n)) return 'Error'
     if (n <= 0) return ''
 
-    let result = ''
+    // let result = ''
     // for (начало; условие; шаг)
-    for (let i = 0; i < n; i = i + 1) {
-        result += str
-    }
-    return result
+    // for (let i = 0; i < n; i = i + 1) {
+    //     result += str
+    // }
+    // return result
+    return str.repeat(n)
 }
 
 // Tests:
@@ -193,10 +205,11 @@ console.log('---------------------------------------------------------')
 
 // --- Task 10. First Non-Empty Value
 function firstTruthy(a, b, c) {
-    if (a) return a
-    if (b) return b
-    if (c) return c
-    return null
+    // if (a) return a
+    // if (b) return b
+    // if (c) return c
+    // return null
+    return a || b || c || null
 }
 
 // Tests:
@@ -213,14 +226,22 @@ function safeDivide(a, b) {
     let a_num = +a
     let b_num = +b
 
-    if (isNaN(a_num)) return 'Error'
-    if (isNaN(b_num)) return 'Error'
+    if (isNaN(a_num) || isNaN(b_num)) return 'Error'
 
     if (b_num == 0) return 'Error'
 
     return a_num / b_num
 }
 
+// +a && +b ? a / b : 'Error'
+// if +a && +b === true -> return a/b
+// if +a && +b === false -> return 'Error'
+let tern = 7 == 5 ? 'oo' : 'uu'
+console.log(tern)
+
+let fs = -1
+tern1 = fs < 0 ? -1 * fs : fs
+console.log(tern1)
 // Tests:
 console.log(safeDivide(10, 2))
 console.log(safeDivide('10', '2'))
