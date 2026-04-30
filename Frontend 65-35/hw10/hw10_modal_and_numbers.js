@@ -6,9 +6,9 @@ if (my_number === null) {
 } else {
     let num = Number(my_number)
     let int_num = Math.trunc(num)
-    alert(`Your number in decimal: ${int_num.toString(10)}\n
-    In binary: ${int_num.toString(2)}\n
-    In hexadecimal: ${int_num.toString(16)}`);
+    alert(`Your number in decimal: ${int_num.toString(10)}
+In binary: ${int_num.toString(2)}
+In hexadecimal: ${int_num.toString(16)}`);
 
     alert(`Reverse of the number: ${reverse(num)}`);
     alert(`Sum of digits: ${sumDigits(num)}`);
