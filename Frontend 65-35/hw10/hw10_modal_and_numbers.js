@@ -1,11 +1,17 @@
-let my_number = prompt("Enter the number and I'll return it in reverse:")
+let my_number = prompt("Enter the number:")
 if (my_number === null) {
     alert("You cancelled the input.")
 } else if (isNaN(my_number) || my_number.trim() === "") {
     alert("Please enter a valid number.")
 } else {
-    alert(`Reverse of the number ${my_number}: ${reverse(my_number)}.`)
-    alert(`Sum of digits: ${sumDigits(my_number)}.`)
+    let num = Number(my_number)
+    let int_num = Math.trunc(num)
+    alert(`Your number in decimal: ${int_num.toString(10)}\n
+    In binary: ${int_num.toString(2)}\n
+    In hexadecimal: ${int_num.toString(16)}`);
+
+    alert(`Reverse of the number: ${reverse(num)}`);
+    alert(`Sum of digits: ${sumDigits(num)}`);
 }
 
 function reverse(number) {
