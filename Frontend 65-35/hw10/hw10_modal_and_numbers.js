@@ -53,4 +53,3 @@ function sumDigits(number) {
 
     return result_2
 }
-

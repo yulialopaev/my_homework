@@ -1,6 +1,7 @@
 // --- Task 1. Travel Label ---
 function travelLabel(city, country) {
     // console.log(`Hello ${name ?? 'anonymous'}`)
+    // return (city??"Unknown city") + ', ' + (country??"Unknown country") - from Svetlana
     let city_clear = (typeof city === 'string' ? city : null) ?? 'Unknown city';
     let country_clear = (typeof country === 'string' ? country : null) ?? 'Unknown country'
 
@@ -22,7 +23,7 @@ console.log('----------------------------------------')
 
 // ---Task 2. First Available Contact ---
 function firstContact(email, telegram, phone) {
-    return email ?? telegram ?? phone ?? 'No contact'
+    return email ?? telegram ?? phone ?? 'No contact';
 }
 
 console.log(firstContact(null, 'a@telegr', 354)) // a@telegr
@@ -39,16 +40,13 @@ function sumTwo(a, b) {
     return a + b
 }
 
-
 function multiplyThree(a, b, c) {
     return a * b * c
 }
 
-
 function sumFour(a, b, c, d) {
     return a + b + c + d
 }
-
 
 function chooseProcessor(f1, f2, f3, a, b, c, d) {
     if (d !== undefined) return f3(a, b, c, d)
