@@ -34,15 +34,11 @@ function getAverage(array) {
 }
 
 function getStatistic(myArray, getMin, getMax, getAverage, getEvenOdd) {
-    let min = getMin(myArray)
-    let max = getMax(myArray)
-    let average = getAverage(myArray)
     let evenOdd = getEvenOdd(myArray)
-
     return {
-        "Min value": min,
-        "Max value": max,
-        "Average": average,
+        "Min value": getMin(myArray),
+        "Max value": getMax(myArray),
+        "Average": getAverage(myArray),
         "Even": evenOdd.even,
         "Odd": evenOdd.odd
     }
