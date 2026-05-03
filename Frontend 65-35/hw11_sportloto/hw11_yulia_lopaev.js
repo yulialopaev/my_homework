@@ -33,23 +33,15 @@ function getAverage(array) {
     return sum / array.length
 }
 
-function showStatistic(myArray, getMin, getMax, getAverage, getEvenOdd) {
+function getStatistic(myArray, getMin, getMax, getAverage, getEvenOdd) {
     let min = getMin(myArray)
     let max = getMax(myArray)
     let average = getAverage(myArray)
     let evenOdd = getEvenOdd(myArray)
 
-    alert(
-        "Min value: " + min + "\n" +
-        "Max Value: " + max + "\n" +
-        "Average: " + average + "\n" +
-        "Even: " + evenOdd.even + "\n" +
-        "Odd: " + evenOdd.odd
-    )
-
     return {
         "Min value": min,
-        "Max Value": max,
+        "Max value": max,
         "Average": average,
         "Even": evenOdd.even,
         "Odd": evenOdd.odd
@@ -62,6 +54,16 @@ function getEvenOdd(array) {
     return { even: even, odd: odd}
 }
 
+function showStatistic(stat) {
+    alert(
+        "Min value: " + stat["Min value"] + "\n" +
+        "Max value: " + stat["Max value"] + "\n" +
+        "Average: " + stat["Average"] + "\n" +
+        "Even: " + stat["Even"] + "\n" +
+        "Odd: " + stat["Odd"]
+    )
+}
+
 let myArray = randomFive(5)
 
 console.log(myArray)
@@ -69,5 +71,6 @@ console.log(getMax(myArray))
 console.log(getMin(myArray))
 console.log(getAverage(myArray))
 
-console.log(showStatistic(myArray, getMin, getMax, getAverage, getEvenOdd))
+console.log(getStatistic(myArray, getMin, getMax, getAverage, getEvenOdd))
+showStatistic(getStatistic(myArray, getMin, getMax, getAverage, getEvenOdd))
 
