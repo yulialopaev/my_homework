@@ -1,0 +1,17 @@
+# Frontend 65-35 — Homework
+
+Homework assignments for the Full Stack + AI Development course at Tel-Ran.
+
+## Structure
+
+| Folder | Topic |
+|---|---|
+| hw2_CSS | CSS basics |
+| hw3_box_model | Box model |
+| hw4_CSS_layouts | CSS layouts |
+| hw6_animation | CSS animations |
+| hw6_bootstrap | Bootstrap |
+| hw8_types | JavaScript — types |
+| hw9_functions | JavaScript — functions |
+| hw10 | JavaScript — Modal windows and string |
+| hw11_sportloto | JavaScript — Sportloto app |
