@@ -1,36 +1,26 @@
-function randomizer() {
-    return Math.floor(Math.random() * 36 + 1)
-}
+const randomizer = () => Math.floor(Math.random() * 36 + 1)
 
-function randomFive(quantity) {
+const randomFive = quantity => {
     let randomArray = []
-    for (let i = 0; i < quantity; i++) {
+
+    while (randomArray.length < quantity) {
         let result = randomizer()
-        if (randomArray.includes(result)) {
-            i--
-        } else {
+        if (!randomArray.includes(result)) {
             randomArray.push(result)
-            alert("Number " + (i+1) + " is " + result)
+            alert(`Number ${randomArray.length} is ${result}`)
         }
     }
 
     return randomArray.sort((a, b) => b - a)
 }
 
-function getMax(array) {
-    return Math.max(...array)
-}
+const getMax = array => Math.max(...array)
+const getMin = array => Math.min(...array)
 
-function getMin(array) {
-    return Math.min(...array)
-}
+const getAverage = array => array.reduce((sum, num) => sum + num, 0) / array.length
 
-function getAverage(array) {
-    let sum = 0
-    for (let i = 0; i < array.length; i++) {
-        sum += array[i]
-    }
-    return sum / array.length
+const getEvenOdd = array => array.reduce((sum, num) => {
+
 }
 
 function getStatistic(myArray, getMin, getMax, getAverage, getEvenOdd) {
@@ -44,11 +34,7 @@ function getStatistic(myArray, getMin, getMax, getAverage, getEvenOdd) {
     }
 }
 
-function getEvenOdd(array) {
-    let even =  array.filter(function (digit) {return !(digit % 2)}).length
-    let odd = array.filter(function (digit) {return (digit % 2 )}).length
-    return { even: even, odd: odd}
-}
+
 
 function showStatistic(stat) {
     alert(
