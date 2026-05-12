@@ -45,16 +45,32 @@ class Company {
 
     // метод для приёма на работу
     hireEmployee(employee) {
+        if (!(employee instanceof Employee)) {
+            console.log('Error! You can hire just objects from Employee class')
+            return
+        }
+
+        const isIdExists = this.#employees.some(function (emp) {
+            return emp.getId() === employee.getId()
+        })
+
+        if (isIdExists) {
+            console.log(`Error! The employee with id ${employee.getId()} is already in the company`)
+            return;
+        }
         this.#employees.push(employee)
     }
 
     // метод для увольнения только по id
     fireEmployee(id) {
-        let firedEmployee = this.#employees.find(function (employee) {
+        const index = this.#employees.findIndex(function (employee) {
             return employee.getId() === id
         })
-        let index = this.#employees.indexOf(firedEmployee)
-        this.#employees.splice(index, 1)
+
+        if (index !== -1) {
+            this.#employees.splice(index, 1)
+        }
+
     }
 
     //   метод для вывода всех работников
@@ -72,22 +88,26 @@ class Company {
     }
 
     //     минимальная зарплата
-    getMinSalary() {
-        const minSalary = this.#employees.reduce(function (acc, employee) {
+    getEmployeeMinSalary() {
+        if (this.#employees.length === 0) {
+            return "There is no employees in the company"
+        }
+
+        const minEmployee = this.#employees.reduce(function (acc, employee) {
             if (employee.getSalary() < acc.getSalary()) {
                 return employee
             } else {
                 return acc
             }
-        }, this.#employees[0])
-        return minSalary.getSalary()
+        })
+        return minEmployee.toString()
     }
 }
 
 
 let employee1 = new Employee(304455, "Anatoly Davydov", "Junior QA", 11000)
 let employee2 = new Employee(245003, "Maria Lyapkina", "Backend Developer", 23000)
-let employee3 = new Employee(652427, "Rotem Manteka", "Manager", 15000)
+let employee3 = new Employee(652427, "Rotem Manteka", "People Manager", 15000)
 let employee4 = new Employee(324587, "Yulia Lopaev", "Fullstack Developer", 28000)
 
 const company = new Company()
@@ -98,7 +118,7 @@ company.hireEmployee(employee4)
 
 company.getAllEmployee()
 console.log(company.getTotalSalary())
-console.log(company.getMinSalary())
+console.log(company.getEmployeeMinSalary())
 console.log("---------------------------------------\n")
 
 company.fireEmployee(304455)
@@ -106,6 +126,11 @@ company.getAllEmployee()
 console.log("---------------------------------------\n")
 
 console.log(company.getTotalSalary())
-console.log(company.getMinSalary())
+console.log(company.getEmployeeMinSalary())
+
+console.log(typeof employee4)
+
+
+
 
 
