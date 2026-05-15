@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Yulia Lopaev - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="row align-items-stretch bg-light p-3 mb-4">
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <p><strong>Add new employee</strong></p>
+                    <label class="form-label fw-bold">Employee name:</label>
+                    <input class="form-control" id="name" type="text">
+                    <label class="form-label fw-bold">ID:</label>
+                    <input class="form-control" id="id" type="number">
+                    <label class="form-label fw-bold">Position:</label>
+                    <input class="form-control" id="position" type="text">
+                    <label class="form-label fw-bold">Salary:</label>
+                    <input class="form-control" id="salary" type="number">
+                    <div class="pt-3 pb-3">
+                        <button class="btn btn-info text-white fw-bold me-2" id="add-btn">Add</button>
+                        <button class="btn btn-outline-secondary fw-bold clear-btn" type="reset">Clear Form</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column">
+                    <p><strong>Fire employee</strong></p>
+
+                    <div class="d-flex flex-column justify-content-center flex-grow-1">
+                        <label class="form-label fw-bold">ID:</label>
+                        <input class="form-control" id="fire-id" type="number">
+                        <div class="pt-3 pb-3">
+                            <button class="btn btn-info text-white fw-bold me-2" id="fire-btn" type="submit">Fire</button>
+                            <button class="btn btn-outline-secondary fw-bold clear-btn" type="reset">Clear Form</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-stretch bg-light p-3 mb-4">
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <input class="form-control mb-3" id="search" type="text" placeholder="Search by name or position...">
+                    <p><strong>Employee list:</strong></p>
+                    <div id="employee-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3 d-flex flex-column gap-3">
+            <div class="card shadow-sm flex-grow-1">
+                <div class="card-body">
+                    <p><strong>Total salary</strong></p>
+                    <label class="form-label" id="total-salary">Text</label>
+                </div>
+            </div>
+
+            <div class="card shadow-sm flex-grow-1">
+                <div class="card-body">
+                    <p><strong>Employee with the lowest salary</strong></p>
+                    <label class="form-label" id="min-salary">Text</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script defer src="script.js"></script>
+</body>
+</html>

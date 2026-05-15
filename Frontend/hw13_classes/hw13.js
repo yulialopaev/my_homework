@@ -46,8 +46,7 @@ class Company {
     // метод для приёма на работу
     hireEmployee(employee) {
         if (!(employee instanceof Employee)) {
-            console.log('Error! You can hire just objects from Employee class')
-            return
+            return 'Error! You can hire just objects from Employee class'
         }
 
         const isIdExists = this.#employees.some(function (emp) {
@@ -55,8 +54,7 @@ class Company {
         })
 
         if (isIdExists) {
-            console.log(`Error! The employee with id ${employee.getId()} is already in the company`)
-            return;
+             return `Error! The employee with id ${employee.getId()} is already in the company`
         }
         this.#employees.push(employee)
     }
@@ -76,7 +74,7 @@ class Company {
     //   метод для вывода всех работников
     getAllEmployee() {
         this.#employees.forEach(function (employee) {
-            console.log(employee.toString())
+            return employee.toString()
         })
     }
 
