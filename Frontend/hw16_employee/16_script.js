@@ -119,22 +119,112 @@ company.hireEmployee(employee5)
 company.hireEmployee(employee6)
 
 
-// Add elements to HTML
+// Add all elements to HTML
 const container = document.querySelector('#container')
-const addEmp = document.createElement('div')
-container.appendChild(addEmp)
 
-const pAdd = document.createElement('h2')
-pAdd.textContent = 'Add new employee'
-addEmp.appendChild(pAdd)
+const divAdd = document.createElement('div')
+divAdd.className = 'div-add'
+container.appendChild(divAdd)
+
+const hAdd = document.createElement('h2')
+hAdd.textContent = 'Add new employee'
+divAdd.appendChild(hAdd)
 
 const pName = document.createElement('p')
 pName.textContent = 'Employee name:'
-addEmp.appendChild(pName)
+divAdd.appendChild(pName)
 
 const inputName = document.createElement('input')
-addEmp.appendChild(inputName)
+divAdd.appendChild(inputName)
 
 const pID = document.createElement('p')
 pID.textContent = 'ID:'
-addEmp.appendChild(pID)
+divAdd.appendChild(pID)
+
+const inputID = document.createElement('input')
+divAdd.appendChild(inputID)
+
+const pPosition = document.createElement('p')
+pPosition.textContent = 'Position:'
+divAdd.appendChild(pPosition)
+
+const inputPosition = document.createElement('input')
+divAdd.appendChild(inputPosition)
+
+const pSalary = document.createElement('p')
+pSalary.textContent = 'Salary:'
+divAdd.appendChild(pSalary)
+
+const inputSalary = document.createElement('input')
+divAdd.appendChild(inputSalary)
+
+const addBtn = document.createElement('button')
+addBtn.textContent = 'Add'
+addBtn.className = 'button'
+divAdd.appendChild(addBtn)
+
+const clearBtn = document.createElement('button')
+clearBtn.textContent = 'Clear'
+clearBtn.className = 'button'
+divAdd.appendChild(clearBtn)
+
+const divHire = document.createElement('div')
+divHire.className = 'div-hire'
+container.appendChild(divHire)
+
+const hHire = document.createElement('h2')
+hHire.textContent = 'Hire employee'
+divHire.appendChild(hHire)
+
+const pIDHire = document.createElement('p')
+pIDHire.textContent = 'ID:'
+divHire.appendChild(pIDHire)
+
+const inputIDHire = document.createElement('input')
+divHire.appendChild(inputIDHire)
+
+const hireBtn = document.createElement('button')
+hireBtn.textContent = 'Hire'
+divHire.appendChild(hireBtn)
+
+const clearBtnHire = document.createElement('button')
+clearBtnHire.textContent = 'Clear'
+clearBtnHire.classList.add('clear-btn')
+divHire.appendChild(clearBtnHire)
+
+let divList = document.createElement('div')
+divList.className = 'div-list'
+container.appendChild(divList)
+
+let searchInput = document.createElement('input')
+searchInput.placeholder = 'Search by name or position'
+divList.appendChild(searchInput)
+
+let hList = document.createElement('h2')
+hList.textContent = 'Employee list'
+divList.appendChild(hList)
+
+let list = document.createElement('ul')
+divList.appendChild(list)
+
+let divTotal = document.createElement('div')
+divTotal.className = 'div-total'
+container.appendChild(divTotal)
+
+let hTotal = document.createElement('h2')
+hTotal.textContent = 'Total salary'
+divTotal.appendChild(hTotal)
+
+let pTotal = document.createElement('p')
+divTotal.appendChild(pTotal)
+
+let divMin = document.createElement('div')
+divMin.className = 'div-min'
+container.appendChild(divMin)
+
+let hMin = document.createElement('h2')
+hMin.textContent = 'Min salary'
+divMin.appendChild(hMin)
+
+let pMin = document.createElement('p')
+divMin.appendChild(pMin)
