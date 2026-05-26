@@ -18,16 +18,6 @@
 
 
 console.log("---- Homework: DOM and Style Priority ----")
-// Topic
-// DOM: document, element search, changing content and styles.
-// Goal
-// Practice working with DOM elements and understand which styles have higher priority:
-// 1.
-// styles written directly in an HTML tag;
-// 2.
-// styles written in a CSS file;
-// 3.
-// styles added through JavaScript.
 // Task 1. Create HTML structure
 // Task 2. Add styles directly in HTML
 // Task 3. Add styles in CSS file

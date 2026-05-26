@@ -1,4 +1,3 @@
-
 // 1. Classes
 class Employee {
     #id
@@ -102,7 +101,7 @@ class Company {
     }
 }
 
-// 2. Mock Data
+
 let employee1 = new Employee(304455, "Anatoly Davydov", "Junior QA", 11000)
 let employee2 = new Employee(245003, "Maria Lyapkina", "Backend Developer", 23000)
 let employee3 = new Employee(652427, "Rotem Manteka", "People Manager", 15000)
@@ -119,90 +118,23 @@ company.hireEmployee(employee4)
 company.hireEmployee(employee5)
 company.hireEmployee(employee6)
 
-// 3. DOM elements
-const listDOM = document.getElementById('employee-list')
-const minSalaryDOM = document.getElementById('min-salary')
-const totalSalaryDOM = document.getElementById('total-salary')
 
-// 4. Function
-function renderEmployeeList(employees = company.getAllEmployees()) {
+// Add elements to HTML
+const container = document.querySelector('#container')
+const addEmp = document.createElement('div')
+container.appendChild(addEmp)
 
+const pAdd = document.createElement('h2')
+pAdd.textContent = 'Add new employee'
+addEmp.appendChild(pAdd)
 
-    const min = company.getEmployeeMinSalary()
-    const total = company.getTotalSalary()
+const pName = document.createElement('p')
+pName.textContent = 'Employee name:'
+addEmp.appendChild(pName)
 
-    const sorted = [...employees].sort((a, b) =>
-        a.getName().localeCompare(b.getName())
-    )
+const inputName = document.createElement('input')
+addEmp.appendChild(inputName)
 
-    listDOM.innerHTML = sorted.map(emp => `<p>${emp.toString()}</p>`).join('')
-    minSalaryDOM.textContent = min
-    totalSalaryDOM.textContent = total
-}
-
-renderEmployeeList()
-
-// 5. Even Listeners
-document.getElementById('add-btn').addEventListener('click', function () {
-    const name = document.getElementById('name').value
-    const id = Number(document.getElementById('id').value)
-    const position = document.getElementById('position').value
-    const salary = Number(document.getElementById('salary').value)
-
-
-    if (!name) {
-        alert('Employee name cannot be empty')
-        return
-    }
-
-    if (salary <=0) {
-        alert("Salary must be a positive number")
-        return
-    }
-
-    const employee = new Employee(id, name, position, salary)
-    const errorMessage = company.hireEmployee(employee)
-
-    if (errorMessage) {
-        alert(errorMessage)
-    } else {
-        renderEmployeeList()
-    }
-
-    document.getElementById('name').value = ''
-    document.getElementById('id').value = ''
-    document.getElementById('position').value = ''
-    document.getElementById('salary').value = ''
-})
-
-
-document.getElementById('fire-btn').addEventListener('click', function () {
-    const id = Number(document.getElementById('fire-id').value)
-    company.fireEmployee(id)
-    renderEmployeeList()
-    document.getElementById('fire-id').value = ''
-})
-
-const clearButtons = document.querySelectorAll('.clear-btn')
-
-clearButtons.forEach(button => {
-    button.addEventListener('click', function (event) {
-        const parentCard = event.target.closest('.card-body')
-        const inputs = parentCard.querySelectorAll('input')
-
-        inputs.forEach(input => input.value = '')
-    })
-})
-
-document.getElementById('search').addEventListener('input', function () {
-    const query = this.value.toLowerCase()
-    const employees = company.getAllEmployees()
-
-    const filtered = employees.filter(function(emp) {
-        return emp.getName().toLowerCase().includes(query) ||
-            emp.getId().toString().includes(query) ||
-            emp.title.toLowerCase().includes(query)
-    })
-
-    renderEmployeeList(filtered)
-})
+const pID = document.createElement('p')
+pID.textContent = 'ID:'
+addEmp.appendChild(pID)
