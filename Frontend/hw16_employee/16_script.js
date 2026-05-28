@@ -594,15 +594,3 @@ inputIDFire.addEventListener('keydown', function (e) {
         showMessage(fireMessageDiv, 'Error! ID must be a positive number!', true);
     }
 })
-
-
-// Your application should allow the user to:
-
-// 2. Display the list of employees on the page.
-// 3. Show employee details: name, position, salary, department, or any fields we
-// used in class.
-// 4. Update employee information.
-// 5. Delete an employee.
-// 6. Search or filter employees by name, department, or position.
-// 7. Show useful messages to the user, for example: employee added, employee
-// deleted, employee not found.
