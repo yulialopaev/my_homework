@@ -1,14 +1,14 @@
 // 1. Classes
 class Employee {
-    #id
-    #name = 'Anonymous'
-    #salary
+    #id;
+    #name = 'Anonymous';
+    #salary;
 
     constructor(id, name, title, salary) {
-        this.#id = id
-        this.setName(name)
-        this.title = title
-        this.setSalary(salary)
+        this.#id = id;
+        this.setName(name);
+        this.title = title;
+        this.setSalary(salary);
     }
 
     setName(name) {
@@ -18,21 +18,21 @@ class Employee {
     }
 
     setSalary(salary) {
-        if (typeof salary === 'number' && salary > 10000) {
+        if (typeof salary === 'number' && salary > 0) {
             this.#salary = salary;
         }
     }
 
     getName() {
-        return this.#name
+        return this.#name;
     }
 
     getSalary() {
-        return this.#salary
+        return this.#salary;
     }
 
     getId() {
-        return this.#id
+        return this.#id;
     }
 
     toString() {
@@ -42,62 +42,73 @@ class Employee {
 
 
 class Company {
-    #employees = []
+    #employees = [];
 
     // метод для приёма на работу
     hireEmployee(employee) {
         if (!(employee instanceof Employee)) {
-            return 'Error! You can hire just objects from Employee class'
+            return 'Error! You can hire just objects from Employee class';
         }
 
         const isIdExists = this.#employees.some(function (emp) {
-            return emp.getId() === employee.getId()
+            return emp.getId() === employee.getId();
         })
 
         if (isIdExists) {
-            return `Error! The employee with id ${employee.getId()} is already in the company`
+            return `Error! The employee with id ${employee.getId()} is already in the company`;
         }
-        this.#employees.push(employee)
+        this.#employees.push(employee);
     }
 
     // метод для увольнения только по id
     fireEmployee(id) {
         const index = this.#employees.findIndex(function (employee) {
-            return employee.getId() === id
+            return employee.getId() === id;
         })
 
         if (index !== -1) {
-            this.#employees.splice(index, 1)
+            this.#employees.splice(index, 1);
+        } else {
+            return `Error! Employee with id ${id} not found`;
         }
 
     }
 
+    updateEmployee(id, name, position, salary) {
+        const employee = this.#employees.find(emp => emp.getId() === id)
+        if (employee) {
+            employee.setName(name)
+            employee.title = position
+            employee.setSalary(salary)
+        }
+    }
+
     //   метод для вывода всех работников
     getAllEmployees() {
-        return this.#employees
+        return this.#employees;
     }
 
     //     метод по получению общей зарплаты
     getTotalSalary() {
         return this.#employees.reduce(function (acc, employee) {
-            return acc + employee.getSalary()
+            return acc + employee.getSalary();
         }, 0)
     }
 
     //     минимальная зарплата
     getEmployeeMinSalary() {
         if (this.#employees.length === 0) {
-            return "There is no employees in the company"
+            return "There is no employees in the company";
         }
 
         const minEmployee = this.#employees.reduce(function (acc, employee) {
             if (employee.getSalary() < acc.getSalary()) {
-                return employee
+                return employee;
             } else {
-                return acc
+                return acc;
             }
         })
-        return minEmployee.toString()
+        return minEmployee.toString();
     }
 }
 
@@ -120,111 +131,478 @@ company.hireEmployee(employee6)
 
 
 // Add all elements to HTML
-const container = document.querySelector('#container')
+const container = document.querySelector('#container');
 
-const divAdd = document.createElement('div')
-divAdd.className = 'div-add'
-container.appendChild(divAdd)
+// Add employee HTML
+const div1 = document.createElement('div');
+div1.className = 'divRow';
+container.appendChild(div1);
 
-const hAdd = document.createElement('h2')
-hAdd.textContent = 'Add new employee'
-divAdd.appendChild(hAdd)
+const div2 = document.createElement('div');
+div2.className = 'divCol';
+div1.appendChild(div2);
 
-const pName = document.createElement('p')
-pName.textContent = 'Employee name:'
-divAdd.appendChild(pName)
+const div3 = document.createElement('div');
+div3.className = 'divCard';
+div2.append(div3);
 
-const inputName = document.createElement('input')
-divAdd.appendChild(inputName)
+const divAdd = document.createElement('div');
+divAdd.className = 'cardBody';
+div3.appendChild(divAdd);
 
-const pID = document.createElement('p')
-pID.textContent = 'ID:'
-divAdd.appendChild(pID)
+const pAdd = document.createElement('p');
+pAdd.textContent = 'Add new employee';
+pAdd.className = 'cardTitle'
+divAdd.appendChild(pAdd);
 
-const inputID = document.createElement('input')
-divAdd.appendChild(inputID)
+const labelName = document.createElement('label');
+labelName.textContent = 'Employee name:';
+divAdd.appendChild(labelName);
 
-const pPosition = document.createElement('p')
-pPosition.textContent = 'Position:'
-divAdd.appendChild(pPosition)
+const inputName = document.createElement('input');
+inputName.id = 'name';
+inputName.type = 'text'
+divAdd.appendChild(inputName);
 
-const inputPosition = document.createElement('input')
-divAdd.appendChild(inputPosition)
+const labelID = document.createElement('label');
+labelID.textContent = 'ID:';
+divAdd.appendChild(labelID);
 
-const pSalary = document.createElement('p')
-pSalary.textContent = 'Salary:'
-divAdd.appendChild(pSalary)
+const inputID = document.createElement('input');
+inputID.id = 'id';
+inputID.type = 'number';
+divAdd.appendChild(inputID);
 
-const inputSalary = document.createElement('input')
-divAdd.appendChild(inputSalary)
+const labelPosition = document.createElement('label');
+labelPosition.textContent = 'Position:';
+divAdd.appendChild(labelPosition);
 
-const addBtn = document.createElement('button')
-addBtn.textContent = 'Add'
-addBtn.className = 'button'
-divAdd.appendChild(addBtn)
+const inputPosition = document.createElement('input');
+inputPosition.id = 'position';
+inputPosition.type = 'text';
+divAdd.appendChild(inputPosition);
 
-const clearBtn = document.createElement('button')
-clearBtn.textContent = 'Clear'
-clearBtn.className = 'button'
-divAdd.appendChild(clearBtn)
+const labelSalary = document.createElement('label');
+labelSalary.textContent = 'Salary:';
+divAdd.appendChild(labelSalary);
 
-const divHire = document.createElement('div')
-divHire.className = 'div-hire'
-container.appendChild(divHire)
+const inputSalary = document.createElement('input');
+inputSalary.id = 'salary';
+inputSalary.type = 'number';
+divAdd.appendChild(inputSalary);
 
-const hHire = document.createElement('h2')
-hHire.textContent = 'Hire employee'
-divHire.appendChild(hHire)
+const divAddButtons = document.createElement('div');
+divAddButtons.className = 'allButtons';
+divAdd.appendChild(divAddButtons);
 
-const pIDHire = document.createElement('p')
-pIDHire.textContent = 'ID:'
-divHire.appendChild(pIDHire)
+const addBtn = document.createElement('button');
+addBtn.textContent = 'Add';
+addBtn.id = 'addButton';
+divAddButtons.appendChild(addBtn);
 
-const inputIDHire = document.createElement('input')
-divHire.appendChild(inputIDHire)
+const clearBtn = document.createElement('button');
+clearBtn.textContent = 'Clear';
+clearBtn.className = 'clearButton';
+divAddButtons.appendChild(clearBtn);
 
-const hireBtn = document.createElement('button')
-hireBtn.textContent = 'Hire'
-divHire.appendChild(hireBtn)
+const addMessageDiv = document.createElement('div');
+addMessageDiv.id = 'addMessage';
+divAdd.appendChild(addMessageDiv);
 
-const clearBtnHire = document.createElement('button')
-clearBtnHire.textContent = 'Clear'
-clearBtnHire.classList.add('clear-btn')
-divHire.appendChild(clearBtnHire)
 
-let divList = document.createElement('div')
-divList.className = 'div-list'
-container.appendChild(divList)
+// Fire employee HTML
+const div4 = document.createElement('div');
+div4.className = 'divCol';
+div1.appendChild(div4);
 
-let searchInput = document.createElement('input')
-searchInput.placeholder = 'Search by name or position'
-divList.appendChild(searchInput)
+const div5 = document.createElement('div');
+div5.className = 'divCol2';
+div5.id = 'div5'
+div4.appendChild(div5);
 
-let hList = document.createElement('h2')
-hList.textContent = 'Employee list'
-divList.appendChild(hList)
+const divFireCard = document.createElement('div')
+divFireCard.className = 'divCard2'
+div5.appendChild(divFireCard)
 
-let list = document.createElement('ul')
-divList.appendChild(list)
+const divFire = document.createElement('div');
+divFire.className = 'divFire';
+divFireCard.appendChild(divFire);
 
-let divTotal = document.createElement('div')
-divTotal.className = 'div-total'
-container.appendChild(divTotal)
+const pFire = document.createElement('p');
+pFire.textContent = 'Fire employee';
+pFire.className = 'cardTitle';
+divFire.appendChild(pFire);
 
-let hTotal = document.createElement('h2')
-hTotal.textContent = 'Total salary'
-divTotal.appendChild(hTotal)
+const div6 = document.createElement('div');
+div6.id = 'div6';
+divFire.appendChild(div6);
 
-let pTotal = document.createElement('p')
-divTotal.appendChild(pTotal)
+const labelIDFire = document.createElement('label');
+labelIDFire.textContent = 'ID:';
+div6.appendChild(labelIDFire);
 
-let divMin = document.createElement('div')
-divMin.className = 'div-min'
-container.appendChild(divMin)
+const inputIDFire = document.createElement('input');
+inputIDFire.id = 'fireID';
+inputIDFire.type = 'number';
+div6.appendChild(inputIDFire);
 
-let hMin = document.createElement('h2')
-hMin.textContent = 'Min salary'
-divMin.appendChild(hMin)
+const divFireButtons = document.createElement('div');
+divFireButtons.className = 'allButtons';
+div6.appendChild(divFireButtons);
 
-let pMin = document.createElement('p')
-divMin.appendChild(pMin)
+const fireBtn = document.createElement('button');
+fireBtn.textContent = 'Fire';
+fireBtn.id = 'fireButton';
+divFireButtons.appendChild(fireBtn);
+
+const clearBtnFire = document.createElement('button');
+clearBtnFire.textContent = 'Clear';
+clearBtnFire.className = 'clearButton';
+clearBtnFire.classList.add('clear-btn');
+divFireButtons.appendChild(clearBtnFire);
+
+const fireMessageDiv = document.createElement('div');
+fireMessageDiv.id = 'fireMessageDiv';
+divFire.appendChild(fireMessageDiv);
+
+
+
+
+
+// Search and employee list HTML
+const div7 = document.createElement('div');
+div7.className = 'divRow';
+container.appendChild(div7);
+
+const div8 = document.createElement('div');
+div8.className = 'divCol';
+div7.appendChild(div8);
+
+const div9 = document.createElement('div');
+div9.className = 'divCard';
+div8.appendChild(div9);
+
+const divList = document.createElement('div');
+divList.className = 'cardBody';
+divList.id = 'divList';
+div9.appendChild(divList);
+
+const searchInput = document.createElement('input');
+searchInput.id = 'search';
+searchInput.placeholder = 'Search by name or position';
+divList.appendChild(searchInput);
+
+const pList = document.createElement('p');
+pList.textContent = 'Employee list';
+pList.className = 'cardTitle';
+divList.appendChild(pList);
+
+const list = document.createElement('div');
+list.id = 'employeeList';
+divList.appendChild(list);
+
+
+const div11 = document.createElement('div');
+div11.className = 'divCard2';
+div5.appendChild(div11);
+
+const divTotal = document.createElement('div');
+divTotal.className = 'cardBody';
+div11.appendChild(divTotal);
+
+const pTotal = document.createElement('p');
+pTotal.textContent = 'Total salary';
+pTotal.className = 'cardTitle';
+divTotal.appendChild(pTotal);
+
+const labelTotal = document.createElement('label');
+labelTotal.id = 'totalSalary';
+divTotal.appendChild(labelTotal);
+
+
+// Min salary employee HTML
+const div12 = document.createElement('div');
+div12.className = 'divCard2';
+div5.appendChild(div12);
+
+const divMin = document.createElement('div');
+divMin.className = 'cardBody';
+div12.appendChild(divMin);
+
+const pMin = document.createElement('p');
+pMin.textContent = 'Min salary';
+pMin.className = 'cardTitle';
+divMin.appendChild(pMin);
+
+const labelMin = document.createElement('label');
+labelMin.id = 'minSalary';
+divMin.appendChild(labelMin);
+
+
+// Edit employee HTML
+const divEditCol = document.createElement('div')
+divEditCol.className = 'divCol'
+divEditCol.id = 'editCol'
+div7.appendChild(divEditCol)
+
+const divEditCard = document.createElement('div')
+divEditCard.className = 'divCard'
+divEditCol.appendChild(divEditCard)
+
+const divEditBody = document.createElement('div')
+divEditBody.className = 'cardBody'
+divEditCard.appendChild(divEditBody)
+
+const pEdit = document.createElement('p')
+pEdit.textContent = 'Edit employee'
+pEdit.className = 'cardTitle'
+divEditBody.appendChild(pEdit)
+
+const labelEditName = document.createElement('label')
+labelEditName.textContent = 'Employee name:'
+divEditBody.appendChild(labelEditName)
+
+const inputEditName = document.createElement('input')
+inputEditName.id = 'editName'
+inputEditName.type = 'text'
+divEditBody.appendChild(inputEditName)
+
+const labelEditPosition = document.createElement('label')
+labelEditPosition.textContent = 'Position:'
+divEditBody.appendChild(labelEditPosition)
+
+const inputEditPosition = document.createElement('input')
+inputEditPosition.id = 'editPosition'
+inputEditPosition.type = 'text'
+divEditBody.appendChild(inputEditPosition)
+
+const labelEditSalary = document.createElement('label')
+labelEditSalary.textContent = 'Salary:'
+divEditBody.appendChild(labelEditSalary)
+
+const inputEditSalary = document.createElement('input')
+inputEditSalary.id = 'editSalary'
+inputEditSalary.type = 'number'
+divEditBody.appendChild(inputEditSalary)
+
+const divEditButtons = document.createElement('div')
+divEditButtons.className = 'allButtons'
+divEditBody.appendChild(divEditButtons)
+
+const saveButton = document.createElement('button')
+saveButton.textContent = 'Save'
+saveButton.id = 'saveButton'
+divEditButtons.appendChild(saveButton)
+
+const cancelButton = document.createElement('button')
+cancelButton.textContent = 'Cancel'
+cancelButton.className = 'clearButton'
+divEditButtons.appendChild(cancelButton)
+
+const editMessageDiv = document.createElement('div')
+editMessageDiv.id = 'editMessage'
+divEditBody.appendChild(editMessageDiv)
+
+// Magic JavaScript
+
+function renderEmployeeList(employees = company.getAllEmployees()) {
+
+    const min = company.getEmployeeMinSalary();
+    const total = company.getTotalSalary();
+    const sorted = [...employees].sort((a, b) =>
+        a.getName().localeCompare(b.getName())
+    )
+
+    list.innerHTML = '';
+
+    sorted.forEach(emp => {
+        const div = document.createElement('div');
+        div.className = 'employeeRow';
+
+        const span = document.createElement('span');
+        span.textContent = emp.toString();
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.className = 'editButton';
+        editButton.addEventListener('click', () => editEmployee(emp.getId()))
+
+        list.appendChild(div);
+        div.appendChild(span);
+        div.appendChild(editButton);
+    })
+
+    labelMin.textContent = min;
+    labelTotal.textContent = total;
+
+}
+
+renderEmployeeList();
+
+// Edit employee
+let currentEditID
+
+function editEmployee(id) {
+    currentEditID = id
+
+    const employee = company.getAllEmployees().find(emp => emp.getId() === id)
+
+    divEditCol.style.display = 'flex'  // показываем форму
+
+    inputEditName.value = employee.getName()
+    inputEditPosition.value = employee.title
+    inputEditSalary.value = employee.getSalary()
+}
+
+cancelButton.addEventListener('click', function() {
+    divEditCol.style.display = 'none'
+})
+
+saveButton.addEventListener('click', function () {
+    const name = document.querySelector('#editName').value.trim()
+    const position = document.querySelector('#editPosition').value.trim()
+    const salary = Number(document.querySelector('#editSalary').value)
+
+    if (!name) {
+        showMessage(addMessageDiv, 'Error! Employee name cannot be empty!', true);
+        return;
+    }
+
+    if (!position) {
+        showMessage(addMessageDiv, 'Error! Position cannot be empty!', true);
+        return;
+    }
+
+    if (salary < 0) {
+        showMessage(addMessageDiv, 'Error! Salary must be positive!', true);
+        return;
+    }
+
+    company.updateEmployee(currentEditID, name, position, salary)
+
+    divEditCol.style.display = 'none'
+    renderEmployeeList()
+})
+
+
+
+// Add a new employee (add Button):
+document.querySelector('#addButton').addEventListener('click', function () {
+    const name = document.querySelector('#name').value.trim();
+    const id = Number(document.querySelector('#id').value);
+    const position = document.querySelector('#position').value.trim();
+    const salary = Number(document.querySelector('#salary').value);
+
+    if (!name) {
+        showMessage(addMessageDiv, 'Error! Employee name cannot be empty!', true);
+        return;
+    }
+
+    if (!position) {
+        showMessage(addMessageDiv, 'Error! Position cannot be empty!', true);
+        return;
+    }
+
+    if (salary < 0) {
+        showMessage(addMessageDiv, 'Error! Salary must be positive!', true);
+        return;
+    }
+
+    const employee = new Employee(id, name, position, salary);
+    const errorMessage = company.hireEmployee(employee);
+
+    if (errorMessage) {
+        showMessage(addMessageDiv, errorMessage, true);
+    } else {
+        renderEmployeeList();
+        showMessage(addMessageDiv, 'Employee added successfully!');
+    }
+})
+
+// Fire an employee by ID (fire Button)
+document.querySelector('#fireButton').addEventListener('click', function () {
+    const id = Number(document.querySelector('#fireID').value);
+    const errorMessage = company.fireEmployee(id);
+
+    if (errorMessage) {
+        showMessage(fireMessageDiv, errorMessage, true);
+    } else {
+        showMessage(fireMessageDiv, 'Employee fired!');
+        renderEmployeeList();
+    }
+
+    document.querySelector('#fireID').value = '';
+})
+
+// Clear Buttons
+clearBtn.addEventListener('click', function () {
+    document.querySelector('#name').value = '';
+    document.querySelector('#id').value = '';
+    document.querySelector('#position').value = '';
+})
+
+clearBtnFire.addEventListener('click', function () {
+    document.querySelector('#fireID').value = '';
+})
+
+// search by name, id, position
+document.querySelector('#search').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const employees = company.getAllEmployees();
+
+    const filtered = employees.filter(function (emp) {
+        return emp.getName().toLowerCase().includes(query) ||
+            emp.getId().toString().includes(query) ||
+            emp.title.toLowerCase().includes(query);
+    })
+
+    renderEmployeeList(filtered);
+})
+
+// Message for user
+function showMessage(element, text, isError = false) {
+    element.textContent = text;
+    if (isError) {
+        element.style.color = 'red';
+    } else {
+        element.style.color = 'green';
+    }
+
+    setTimeout(() => {
+        element.textContent = '';
+    }, 3000)
+}
+
+// Checks if number = e
+inputID.addEventListener('keydown', function (e) {
+    if (e.key === 'e' || e.key === 'E' || e.key === '-' || e.key === '+') {
+        e.preventDefault();
+        showMessage(addMessageDiv, 'Error! ID must be a positive number!', true);
+    }
+})
+
+inputSalary.addEventListener('keydown', function (e) {
+    if (e.key === 'e' || e.key === 'E' || e.key === '-' || e.key === '+') {
+        e.preventDefault();
+        showMessage(addMessageDiv, 'Error! Salary must be a positive number!', true);
+    }
+})
+
+inputIDFire.addEventListener('keydown', function (e) {
+    if (e.key === 'e' || e.key === 'E' || e.key === '-' || e.key === '+') {
+        e.preventDefault();
+        showMessage(fireMessageDiv, 'Error! ID must be a positive number!', true);
+    }
+})
+
+
+// Your application should allow the user to:
+
+// 2. Display the list of employees on the page.
+// 3. Show employee details: name, position, salary, department, or any fields we
+// used in class.
+// 4. Update employee information.
+// 5. Delete an employee.
+// 6. Search or filter employees by name, department, or position.
+// 7. Show useful messages to the user, for example: employee added, employee
+// deleted, employee not found.
