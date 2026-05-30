@@ -316,7 +316,7 @@ pTotal.className = 'cardTitle';
 divTotal.appendChild(pTotal);
 
 const labelTotal = document.createElement('label');
-labelTotal.id = 'totalSalary';
+labelTotal.id = 'getTotalSalary';
 divTotal.appendChild(labelTotal);
 
 
