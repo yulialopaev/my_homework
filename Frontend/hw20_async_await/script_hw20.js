@@ -4,13 +4,14 @@ const baseUrl = "https://jsonplaceholder.typicode.com"
 const showButton = document.querySelector('#showButton');
 
 const inputSearch = document.createElement('input');
-inputSearch.id = 'inputSearch';
+inputSearch.type = "number"
+inputSearch.min = "1"
+inputSearch.id = "inputSearch"
 inputSearch.placeholder = 'Enter a post number'
 inputSearch.style.display = "none"
 document.body.append(inputSearch);
 
 const searchButton = document.createElement('button');
-searchButton.id = 'searchButton'
 searchButton.textContent = 'Search User Info'
 searchButton.style.display = "none"
 document.body.append(searchButton)
@@ -20,6 +21,8 @@ document.body.append(userContainer)
 
 const postContainer = document.createElement('div')
 document.body.append(postContainer)
+
+let allPosts = [];
 
 function renderList(posts) {
 
@@ -47,6 +50,8 @@ function renderList(posts) {
 
 showButton.addEventListener('click', async () => {
     try {
+        showButton.disabled = true
+
         inputSearch.style.display = "inline-block"
         searchButton.style.display = "inline-block"
 
@@ -55,39 +60,53 @@ showButton.addEventListener('click', async () => {
             throw new Error(`Show error: ${response.status}`)
         }
         const data = await response.json()
-        renderList(data)
+        allPosts = data
+
+        renderList(allPosts)
     } catch (err) {
         console.log(err)
     }
 })
 
 searchButton.addEventListener('click', async () => {
-    try {
+    userContainer.style = ""
+    userContainer.textContent = ""
+    // postContainer.textContent = ""
 
-        const value = inputSearch.value.trim();
+    try {
+        const value = Number(inputSearch.value.trim());
 
         if (!value) {
-            postContainer.textContent = 'Please enter a post number.'
-            postContainer.style.color = 'red';
-            postContainer.style.fontWeight = 'bold';
+            userContainer.textContent = 'Please enter a post number.'
+            userContainer.style.color = 'red';
+            userContainer.style.fontWeight = 'bold';
+            return
+        }
+
+        if (value < 1 || (value % 1 !== 0)) {
+            userContainer.textContent = 'The number must be a positive integer.'
+            userContainer.style.color = 'red';
+            userContainer.style.fontWeight = 'bold';
             return
         }
 
         inputSearch.value = '';
 
-        const response = await fetch(`${baseUrl}/posts/${value}`)
-        if (!response.ok) {
-            throw new Error(`Search Error: ${response.status}`)
-        }
+        // const response = await fetch(`${baseUrl}/posts/${value}`)
+        // if (!response.ok) {
+        //     throw new Error(`Search Error: ${response.status}`)
+        // }
 
-        const data = await response.json()
-        const authorId = data.userId
+        const post = allPosts.find(p => p.id === value)
+
+        // const data = await response.json()
+        const authorId = post.userId
         const userData = await fetch(`${baseUrl}/users/${authorId}`)
         const user = await userData.json()
 
+        // userContainer.textContent = ""
+        userContainer.style = ""
         postContainer.textContent = ""
-        postContainer.style.color = '';
-        postContainer.style.fontWeight = '';
 
         const userId = document.createElement('h4')
         userId.textContent = `User ID = ${user.id}`
@@ -98,13 +117,20 @@ searchButton.addEventListener('click', async () => {
         const userCity = document.createElement('p')
         userCity.textContent = `City: ${user.address.city}`
 
-        userContainer.textContent = ''
+        userContainer.style.border = "2px solid darkRed"
+        userContainer.style.borderRadius = "8px"
+        userContainer.style.padding = "1rem"
         userContainer.append(userId, userName, userCity)
 
-        const userPosts = await fetch(`${baseUrl}/posts?userId=${authorId}`)
-        const postsData = await userPosts.json()
-
-        renderList(postsData)
+        const userPosts = allPosts.filter(p => p.userId === authorId)
+        renderList(userPosts)
+        // const userPosts = await fetch(`${baseUrl}/posts?userId=${authorId}`)
+        // const postsData = await userPosts.json()
+        //
+        // renderList(postsData)
+        inputSearch.style.display = "none"
+        searchButton.style.display = "none"
+        showButton.disabled = false
 
     } catch (err) {
         console.log(err)
