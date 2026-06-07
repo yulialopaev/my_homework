@@ -1,0 +1,15 @@
+h2 {
+    color: darkred;
+}
+
+.box {
+    border: 1px solid darkred;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+#inputSearch {
+    margin: 8px;
+
+}

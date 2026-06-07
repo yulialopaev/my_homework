@@ -68,6 +68,7 @@ function renderList(posts) {
 
 showButton.addEventListener('click', () => {
 
+    userContainer.textContent = ""
     fetch(`${baseUrl}/posts`)
 
         .then(res => res.json())
@@ -110,8 +111,8 @@ getInfoButton.addEventListener('click', () => {
         .then(user => {
             userContainer.textContent = ''
 
-            const userId = document.createElement('h4')
-            userId.textContent = `User ID = ${user.id}`
+            const userId = document.createElement('h3')
+            userId.textContent = `User Info:`
 
             const userName = document.createElement('p')
             userName.textContent = `Name: ${user.username}`

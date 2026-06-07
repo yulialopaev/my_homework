@@ -6,12 +6,17 @@ const showButton = document.querySelector('#showButton');
 const inputSearch = document.createElement('input');
 inputSearch.id = 'inputSearch';
 inputSearch.placeholder = 'Enter a post number'
+inputSearch.style.display = "none"
 document.body.append(inputSearch);
 
 const searchButton = document.createElement('button');
 searchButton.id = 'searchButton'
 searchButton.textContent = 'Search User Info'
+searchButton.style.display = "none"
 document.body.append(searchButton)
+
+const userContainer = document.createElement("p")
+document.body.append(userContainer)
 
 const postContainer = document.createElement('div')
 document.body.append(postContainer)
@@ -41,6 +46,10 @@ function renderList(posts) {
 
 
 showButton.addEventListener('click', () => {
+
+    inputSearch.style.display = "inline-block"
+    searchButton.style.display = "inline-block"
+
     fetch(`${baseUrl}/posts`)
 
         .then(res => res.json())
@@ -81,7 +90,7 @@ searchButton.addEventListener('click', () => {
             const userCity = document.createElement('p')
             userCity.textContent = `City: ${user.address.city}`
 
-            postContainer.append(userId, userName, userCity)
+            userContainer.append(userId, userName, userCity)
         })
         .catch(err => console.log(err))
 })
