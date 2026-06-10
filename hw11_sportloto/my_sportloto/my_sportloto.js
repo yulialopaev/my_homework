@@ -60,10 +60,11 @@ function getMax(array) {
 
 // Calculates the average value of an array's elements.
 function getAverage(array) {
-    let sum = 0
-    for (const value of array) {
-        sum += value
-    }
+    // let sum = 0
+    // for (const value of array) {
+    //     sum += value
+    // }
+    let sum = array.reduce((acc, item) => acc + item)
     return parseFloat((sum / array.length).toFixed(2))
 }
 
