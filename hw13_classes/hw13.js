@@ -88,6 +88,7 @@ class Company {
     //     минимальная зарплата
     getEmployeeMinSalary() {
         if (this.#employees.length === 0) {
+
             return "There is no employees in the company"
         }
 
