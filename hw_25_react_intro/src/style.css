@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.student-card {
+    margin-top: 20px;
+    background-color: #F5FFFA;
+    padding: 25px;
+    border: #20B2AA 2px solid;
+    border-radius: 15px;
+}
+
+h1 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #20B2AA;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0 auto;
+}
+
+.about-block {
+    margin-top: 20px;
+}
+
+.skills-block {
+    margin-top: 20px;
+}
+
+.subtitle {
+    font-weight: bold;
+}

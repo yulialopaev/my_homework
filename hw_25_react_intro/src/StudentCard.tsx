@@ -25,9 +25,9 @@ function StudentCard() {
 
             <div className="skills-block">
                 <p className="subtitle">Skills:</p>
-                <ul>
-                    {skills.map((skill, index) => (
-                        <li key={index}>{skill}</li>
+                <ul className="skills-list">
+                    {skills.map((skill) => (
+                        <li key={skill}>{skill}</li>
                     ))}
                 </ul>
             </div>
