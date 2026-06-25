@@ -1,0 +1,25 @@
+{
+  "name": "hw_25_react_intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "esbuild src/main.tsx --bundle --outfile=dist/main.js --sourcemap --servedir=. --serve=8051",
+    "build": "esbuild src/main.tsx --bundle --minify --outfile=dist/main.js",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "esbuild": "^0.28.1",
+    "typescript": "^6.0.3"
+  }
+}
