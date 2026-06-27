@@ -1,0 +1,156 @@
+/* ==========================================================================
+   1. СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ (Теплый песочный фон из палитры)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8dfb8; /* Тот самый светлый, уютный песочно-кремовый фон */
+    color: #6b4633;            /* Мягкий графитово-черный для идеального чтения */
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. ОФОРМЛЕНИЕ ШАПКИ СТРАНИЦЫ (Page Header)
+   ========================================================================== */
+.page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgb(107 70 51); /* Едва заметная винная линия */
+}
+
+/* Ярлычок "React + TypeScript" (Нежно-розовый бэйджик) */
+.page-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ba621c;            /* Глубокий винный / темно-розовый тон */
+    background-color: #f7e3e7; /* Очень нежный пудрово-розовый фон */
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+}
+
+/* Главный заголовок "Car List" (Роскошный глубокий винный цвет) */
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #6b4633;            /* Самый темный бордово-винный оттенок */
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+/* Подзаголовок "List of cars" */
+.page-intro {
+    font-size: 1.05rem;
+    color: #ba621c;            /* Приглушенный винный */
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   3. СЕТКА ДЛЯ КАРТОЧЕК (Flexbox)
+   ========================================================================== */
+.page-header + div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+/* ==========================================================================
+   4. СТИЛИЗАЦИЯ КАРТОЧКИ АВТОМОБИЛЯ (Сочные ягодные акценты)
+   ========================================================================== */
+.car-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 320px;
+    padding: 24px;
+    border: 1px solid rgb(186 98 28);
+
+    /* Мягкая, дорогая тень с легким теплым оттенком */
+    box-shadow: 0 4px 20px rgba(97, 28, 41, 0.03);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(97, 28, 41, 0.08); /* Тень теплеет при наведении */
+}
+
+/* Заголовок внутри карточки — Серийный номер (Сочный ягодно-розовый) */
+.car-content h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ba621c;            /* Яркий, сочный бруснично-розовый цвет */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fcf0f2; /* Розоватая деликатная линия */
+}
+
+/* Список характеристик <dl> */
+.car-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Строчки внутри списка */
+.car-details div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* Названия (Manufacturer, Model...) — Благородный приглушенный винный */
+.car-details dt {
+    font-size: 0.85rem;
+    color: #253812;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Значения (Toyota, Corolla...) — Графитовый */
+.car-details dd {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2b2e2a;
+}
+
+/* Выделение года выпуска сочной винной плашкой */
+.car-details div:last-child dd {
+    background-color: #f8dfb8; /* Нежный розово-пудровый фон */
+    color: #6b4633;            /* Темно-бордовый благородный цвет цифр */
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   5. ПОДВАЛ СТРАНИЦЫ (Page Footer)
+   ========================================================================== */
+.page-footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.85rem;
+    color: #a64b5e;
+    font-weight: 500;
+    border-top: 1px solid rgba(166, 75, 93, 0.15);
+}

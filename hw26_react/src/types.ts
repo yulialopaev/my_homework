@@ -5,4 +5,4 @@ export type Car = {
     year: number
 }
 
-export type CarList = Car[]
+
