@@ -1,8 +1,7 @@
 interface Grade {
     courseId: number
-    numericGrade: number
+    score: number
 }
-
 
 class Student {
     id: number
@@ -49,12 +48,14 @@ class Course {
 }
 
 const student1 = new Student(100, "Yulia Lopaev", "04/02/1986",
-    [{courseId: 1, numericGrade: 98}, {courseId: 2, numericGrade:85}])
+    [{courseId: 1, score: 98}, {courseId: 2, score:85}])
 const student2 = new Student(101, "Mike Vasovsky", "05/07/1983",
-    [{courseId: 1, numericGrade: 96}, {courseId: 3, numericGrade: 100}])
+    [{courseId: 1, score: 96}, {courseId: 3, score: 100}])
 
 const courseMath = new Course(1, "Math", 5)
 const coursePhysics = new Course(2, "Physics", 4)
 const courseEnglish = new Course(3, "English", 3)
 
 console.log(student1)
+console.log(student2)
+
