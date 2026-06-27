@@ -1,0 +1,25 @@
+{
+  "name": "homework26-list of cars",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Homework 26 React App list of cars",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "esbuild src/main.tsx --bundle --outfile=dist/main.js --sourcemap --servedir=. --serve=8002",
+    "build": "esbuild src/main.tsx --bundle --minify --outfile=dist/main.js",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "esbuild": "^0.25.12",
+    "typescript": "^5.9.3"
+  }
+}
