@@ -2,8 +2,7 @@ import {createRoot} from "react-dom/client";
 import {StrictMode} from "react";
 
 // @ts-ignore
-// import "../dist/main.css"
-import "./style.css"
+import "../dist/main.css"
 import App from "./App";
 
 
