@@ -1,4 +1,5 @@
 import CarCard from "./CarCard";
+import CarCardClass from "./CarCardClass";
 import {cars} from "./cars"
 
 function App () {
@@ -14,10 +15,20 @@ function App () {
 
 
             <div>
+                <h2>Functional Components</h2>
                 {cars.map(car => (
                     <CarCard key={car.serialNumber} car={car}/>
                 ))}
             </div>
+
+
+            <div>
+                <h2>Class Components</h2>
+                {cars.map(car => (
+                    <CarCardClass key={car.serialNumber} car={car}/>
+                ))}
+            </div>
+
             <footer className="page-footer">
                 <p>Homework 26 · React </p>
             </footer>

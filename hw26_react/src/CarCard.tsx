@@ -5,8 +5,8 @@ type CarCardProps = Readonly<{
 }>
 
 function CarCard({car}: CarCardProps) {
-    return(
-        <article className = "car-card">
+    return (
+        <article className="car-card">
             <section className="car-content">
                 <h2>{car.serialNumber}</h2>
 

@@ -61,14 +61,30 @@ main {
 }
 
 /* ==========================================================================
-   3. СЕТКА ДЛЯ КАРТОЧЕК (Flexbox)
+   3. СЕТКА И СЕКЦИИ ДЛЯ КАРТОЧЕК
    ========================================================================== */
-.page-header + div {
+/* Стилизуем заголовки разделов "Components" и "Car Class Components" */
+main > div > h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    color: #6b4633;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Обертка для контейнера с карточками внутри div (вместо жесткого .page-header + div) */
+main > div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
     margin-bottom: 60px;
+}
+
+/* Переопределяем поведение h2 внутри flex-контейнера, чтобы он занимал всю ширину строки */
+main > div > h2 {
+    flex-basis: 100%;
 }
 
 /* ==========================================================================
