@@ -1,0 +1,43 @@
+button {
+
+}
+
+p {
+    margin: 0;
+}
+
+.page-header {
+
+}
+
+.page-label {
+
+}
+
+.page-footer {
+
+}
+
+.product-list {
+
+}
+
+.product-row {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Разделительная линия между продуктами */
+}
+
+.product-quantity {
+    display: flex;         /* Включает Flexbox, выстраивая всё в строку */
+    align-items: center;   /* Выравнивает кнопки и текст ровно по вертикали */
+    gap: 15px;             /* Делает аккуратные отступы между всеми элементами */
+
+    /* Дополнительные стили для красоты (по желанию): */
+    padding: 10px 0;
+
+}
+
+/* Убираем стандартные внешние отступы у <p>, чтобы они не ломали выравнивание */
+.product-quantity p {
+    margin: 0;
+}
