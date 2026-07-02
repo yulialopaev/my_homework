@@ -14,16 +14,16 @@ class ProductCartClass extends Component<ProductCartClassProps> {
 
         return (
             <div className={"product-row"}>
-                <p>{product.title} {product.price} NIS</p>
-                <div className={"product-quantity"}>
+                <label>{product.title} {product.price} NIS</label>
+                <span className={"product-quantity"}>
 
-                    <button onClick={() => {
+                    <button className={"count-button"} onClick={() => {
                         if (count > 0) onDecrease()}}>-</button>
-                    <p>{count}</p>
+                    <label>{count}</label>
 
-                    <button onClick={() => {onIncrease()}}>+</button>
-                    <p>{(count * product.price).toFixed(2)} NIS</p>
-                </div>
+                    <button className={"count-button"} onClick={() => {onIncrease()}}>+</button>
+                    <label>{(count * product.price).toFixed(2)} NIS</label>
+                </span>
 
             </div>
         )

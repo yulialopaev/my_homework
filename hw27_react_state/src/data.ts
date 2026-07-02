@@ -3,7 +3,7 @@ import {Product} from "./types"
 export const products: Product[] = [
     {
         id: 101,
-        title: "White cheese",
+        title: "Cheese",
         price: 78
     },
     {

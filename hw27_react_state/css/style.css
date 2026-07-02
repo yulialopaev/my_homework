@@ -1,53 +1,76 @@
-button {
-
+main {
+    text-align: center;
 }
 
 p {
     margin: 0;
 }
 
+h1 {
+    margin: 0;
+}
+
+h2 {
+
+}
+
+span {
+    margin: 0 10px;
+}
+
+label {
+    margin: 0 10px;
+    font-size: 20px;
+}
+
 .page-header {
-
-}
-
-.page-label {
-
-}
-
-.page-footer {
-
-}
-
-.product-list {
-
+    margin: 20px auto;
 }
 
 .product-row {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee; /* Разделительная линия между продуктами */
-}
-
-.product-quantity {
-    display: flex;         /* Включает Flexbox, выстраивая всё в строку */
-    align-items: center;   /* Выравнивает кнопки и текст ровно по вертикали */
-    gap: 15px;             /* Делает аккуратные отступы между всеми элементами */
-
-    /* Дополнительные стили для красоты (по желанию): */
-    padding: 10px 0;
-
-}
-
-/* Убираем стандартные внешние отступы у <p>, чтобы они не ломали выравнивание */
-.product-quantity p {
-    margin: 0;
+    margin: 10px auto;
 }
 
 .page-footer {
     margin-top: 40px;
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8C8C8C;
 }
 
 .page-label {
-
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8C8C8C;
+}
+
+.cart-container {
+    margin-bottom: 50px;
+    border-top: 1px solid #8b3a1a;
+    border-bottom: 1px solid #8b3a1a;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
+.cart-summary {
+    margin: 20px auto;
+
+}
+
+.reset-button {
+    font-size: 20px;
+    background-color: #e74c3c;
+    color: wheat;
+    border: 1px solid #8b3a1a;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.count-button {
+    padding: 3px 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid black;
 }

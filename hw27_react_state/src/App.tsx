@@ -20,9 +20,9 @@ function App() {
     const handleFunctionDecrease = (id: number) => {
         setCartCounts((prevCounts) => {
             const currentCount = prevCounts[id] || 0;
-            if (currentCount <=0) return prevCounts
+            if (currentCount <= 0) return prevCounts
 
-            return  {
+            return {
                 ...prevCounts,
                 [id]: currentCount - 1
             }
@@ -53,9 +53,9 @@ function App() {
     const handleClassDecrease = (id: number) => {
         setClassCartCounts((prevCounts) => {
             const currentCount = prevCounts[id] || 0;
-            if (currentCount <=0) return prevCounts
+            if (currentCount <= 0) return prevCounts
 
-            return  {
+            return {
                 ...prevCounts,
                 [id]: currentCount - 1
             }
@@ -84,46 +84,52 @@ function App() {
 
             </header>
 
+            <div className={"cart-container"}>
 
-            <div className={"product-list"}>
-                {products.map(product => (
-                        <ProductCartFunction
-                            key={product.id}
-                            product={product}
-                            count={cartCounts[product.id] || 0}
-                            onIncrease={() => handleFunctionIncrease(product.id)}
-                            onDecrease={() => handleFunctionDecrease(product.id)}
-                        />
-                    )
-                )}
+                <h2>Functional cart</h2>
+                <div className={"product-list"}>
+                    {products.map(product => (
+                            <ProductCartFunction
+                                key={product.id}
+                                product={product}
+                                count={cartCounts[product.id] || 0}
+                                onIncrease={() => handleFunctionIncrease(product.id)}
+                                onDecrease={() => handleFunctionDecrease(product.id)}
+                            />
+                        )
+                    )}
+                </div>
+
+                <CartSummaryFunction
+                    totalQuantity={totalFunctionQuantity}
+                    totalPrice={totalFunctionPrice}
+                />
+                <button className={"reset-button"} onClick={handleFunctionReset}>Reset</button>
+
             </div>
 
-            <CartSummaryFunction
-                totalQuantity={totalFunctionQuantity}
-                totalPrice={totalFunctionPrice}
-            />
-            <button onClick={handleFunctionReset}>Reset</button>
+            <div className={"cart-container"}>
+                <h2>Class cart</h2>
+                <div className={"product-list"}>
+                    {products.map(product => (
+                            <ProductCartClass
+                                key={product.id}
+                                product={product}
+                                count={cartClassCounts[product.id] || 0}
+                                onIncrease={() => handleClassIncrease(product.id)}
+                                onDecrease={() => handleClassDecrease(product.id)}
+                            />
+                        )
+                    )}
+                </div>
 
-            <div className={"product-list"}>
-                {products.map(product => (
-                        <ProductCartClass
-                            key={product.id}
-                            product={product}
-                            count={cartClassCounts[product.id] || 0}
-                            onIncrease={() => handleClassIncrease(product.id)}
-                            onDecrease={() => handleClassDecrease(product.id)}
-                        />
-                    )
-                )}
+                <CartSummaryClass
+                    totalQuantity={totalClassQuantity}
+                    totalPrice={totalClassPrice}
+                />
+
+                <button className={"reset-button"} onClick={handleClassReset}>Reset</button>
             </div>
-
-            <CartSummaryClass
-                totalQuantity={totalClassQuantity}
-                totalPrice={totalClassPrice}
-            />
-
-            <button onClick={handleClassReset}>Reset</button>
-
             <footer className="page-footer">
                 <p>Homework 27 · React State </p>
             </footer>
