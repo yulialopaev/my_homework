@@ -22,7 +22,7 @@ interface Employee {
     address: Address,
     salary: number,
     department: Department,
-    position: string
+    position: Position
 }
 
 interface Company {
