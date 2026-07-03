@@ -4,8 +4,8 @@ import {Component} from "react";
 type ProductCartClassProps = {
     product: Product,
     count: number,
-    onIncrease: () => void,
-    onDecrease: () => void
+    onIncrease: (id: number) => void,
+    onDecrease: (id: number) => void
 }
 
 class ProductCartClass extends Component<ProductCartClassProps> {
@@ -15,15 +15,15 @@ class ProductCartClass extends Component<ProductCartClassProps> {
         return (
             <div className={"product-row"}>
                 <p className={"product-title"}>{product.title}</p>
-                <p>Price: {product.price} NIS</p>
+                <p>Price: {product.price} ₪</p>
                 <span className={"product-quantity"}>
 
                 <button className={"count-button"} onClick={() => {
-                    if (count > 0) onDecrease()}}>-</button>
+                    if (count > 0) onDecrease(product.id)}}>-</button>
                 <label>{count}</label>
 
-                <button className={"count-button"} onClick={() => {onIncrease()}}>+</button>
-                <p>Total: {(count * product.price).toFixed(2)} NIS</p>
+                <button className={"count-button"} onClick={() => {onIncrease(product.id)}}>+</button>
+                <p>Total: {(count * product.price).toFixed(2)} ₪</p>
             </span>
 
             </div>

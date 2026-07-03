@@ -7,6 +7,15 @@ import ProductCartClass from "./ProductCartClass";
 import CartSummaryClass from "./CartSummaryClass";
 import './App.css'
 
+function getSelectedProducts(cart: CartState) {
+  return products
+      .filter((product) => cart[product.id])
+      .map((product) => ({
+        product,
+        quantity: cart[product.id]
+      }))
+}
+
 function App() {
   const [cartCounts, setCartCounts] = useState<CartState>({})
   const [cartClassCounts, setClassCartCounts] = useState<CartState>({})
@@ -77,6 +86,9 @@ function App() {
     setClassCartCounts({})
   }
 
+  const selectedFunctionalProducts = getSelectedProducts(cartCounts)
+  const selectedClassProducts = getSelectedProducts(cartClassCounts)
+
   return (
       <main>
         <header className="page-header">
@@ -104,6 +116,7 @@ function App() {
           <CartSummaryFunction
               totalQuantity={totalFunctionQuantity}
               totalPrice={totalFunctionPrice}
+              selectedProducts={selectedFunctionalProducts}
           />
           <button className={"reset-button"} onClick={handleFunctionReset}>Reset</button>
 
@@ -127,6 +140,7 @@ function App() {
           <CartSummaryClass
               totalQuantity={totalClassQuantity}
               totalPrice={totalClassPrice}
+              selectedProducts={selectedClassProducts}
           />
 
           <button className={"reset-button"} onClick={handleClassReset}>Reset</button>
