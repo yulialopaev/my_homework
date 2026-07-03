@@ -1,9 +1,15 @@
+body {
+  background-color: #fbfbfa;
+  color: #2d312e;
+}
+
 main {
   text-align: center;
 }
 
 p {
-  margin: 0;
+  margin: 10px  0;
+  font-size: 18px;
 }
 
 h1 {
@@ -28,28 +34,40 @@ label {
 }
 
 .product-row {
-  margin: 10px auto;
+  margin: 10px 20px;
+  display: inline-block;
+  border: 1px solid #e6e6e3;
+  border-radius: 10px;
+  padding: 20px 40px 0 40px;
+  background-color: #ffffff;
+}
+
+.product-list {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.product-title {
+  margin: 0 10px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .page-footer {
   margin-top: 40px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #8C8C8C;
 }
 
-.page-label {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #8C8C8C;
+.page-label, .page-footer {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #868e89;
 }
 
 .cart-container {
   margin-bottom: 50px;
-  border-top: 1px solid #8b3a1a;
-  border-bottom: 1px solid #8b3a1a;
+  border-top: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
   padding-bottom: 20px;
   display: inline-block;
 }
@@ -60,16 +78,20 @@ label {
 
 .reset-button {
   font-size: 20px;
-  background-color: #e74c3c;
-  color: wheat;
-  border: 1px solid #8b3a1a;
+  background-color: #bc5a45;
+  color: #ffffff;
+  border: none;
   border-radius: 6px;
-  padding: 5px 10px;
+  padding: 5px 15px;
+  cursor: pointer;
 }
 
 .count-button {
-  padding: 3px 8px;
+  padding: 5px 12px;
   font-size: 16px;
   border-radius: 6px;
-  border: 1px solid black;
+  border: none;
+  background-color: #6b9c7d;
+  color: #ffffff;
+  cursor: pointer;
 }

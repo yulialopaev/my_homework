@@ -7,7 +7,6 @@ import ProductCartClass from "./ProductCartClass";
 import CartSummaryClass from "./CartSummaryClass";
 import './App.css'
 
-
 function App() {
   const [cartCounts, setCartCounts] = useState<CartState>({})
   const [cartClassCounts, setClassCartCounts] = useState<CartState>({})
@@ -81,7 +80,7 @@ function App() {
   return (
       <main>
         <header className="page-header">
-          <p className="page-label">React + TypeScript</p>
+          <p className="page-label">React + TypeScript + Vite</p>
           <h1>Product Cart</h1>
 
         </header>
@@ -133,7 +132,7 @@ function App() {
           <button className={"reset-button"} onClick={handleClassReset}>Reset</button>
         </div>
         <footer className="page-footer">
-          <p>Homework 27 · React State </p>
+          <p>Homework 28 · Vite </p>
         </footer>
       </main>
   )

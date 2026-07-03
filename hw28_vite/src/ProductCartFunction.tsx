@@ -12,7 +12,8 @@ function ProductCartFunction({product, count, onIncrease, onDecrease}: ProductCa
 
     return (
         <div className={"product-row"}>
-            <label>{product.title} {product.price} NIS</label>
+            <p className={"product-title"}>{product.title}</p>
+                <p>Price: {product.price} NIS</p>
             <span className={"product-quantity"}>
 
                 <button className={"count-button"} onClick={() => {
@@ -20,7 +21,7 @@ function ProductCartFunction({product, count, onIncrease, onDecrease}: ProductCa
                 <label>{count}</label>
 
                 <button className={"count-button"} onClick={() => {onIncrease()}}>+</button>
-                <label>{(count * product.price).toFixed(2)} NIS</label>
+                <p>Total: {(count * product.price).toFixed(2)} NIS</p>
             </span>
 
         </div>
