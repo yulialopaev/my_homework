@@ -1,19 +1,20 @@
+import {useState} from "react";
 import {products} from "./data";
 import ProductCartFunction from "./ProductCartFunction";
 import CartSummaryFunction from "./CartSummaryFunction";
 import ProductCartClass from "./ProductCartClass";
 import CartSummaryClass from "./CartSummaryClass";
-import {useState} from "react";
+import {CartState} from "./types";
 
 
 function App() {
-    const [cartCounts, setCartCounts] = useState<Record<number, number>>({})
-    const [cartClassCounts, setClassCartCounts] = useState<Record<number, number>>({})
+    const [cartCounts, setCartCounts] = useState<CartState>({})
+    const [cartClassCounts, setClassCartCounts] = useState<CartState>({})
 
     const handleFunctionIncrease = (id: number) => {
         setCartCounts((prevCounts) => ({
             ...prevCounts,
-            [id]: (prevCounts[id] || 0) + 1
+            [id]: (prevCounts[id] ?? 0) + 1
         }))
     }
 

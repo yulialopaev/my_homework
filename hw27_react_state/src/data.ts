@@ -34,6 +34,10 @@ export const products: Product[] = [
         id: 108,
         title: "Potato",
         price: 3.9
+    }, {
+        id: 109,
+        title: "Onion",
+        price: 2.9
     }
 ]
 
