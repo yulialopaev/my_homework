@@ -2,7 +2,8 @@ type BigSquareProps = {
     color: string
 }
 
-function BigSquare({color}:BigSquareProps) {
+function BigSquare({color}: BigSquareProps) {
+
 
     return (
         <div className={"big-container"}>

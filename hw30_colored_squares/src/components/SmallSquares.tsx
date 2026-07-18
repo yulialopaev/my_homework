@@ -1,28 +1,23 @@
-type SmallSquaresProps = {
-    onColorClick: (c: string) => void
+type SmallSquareProps = {
+    backgroundColor: string
+    onClick: (backgroundColor: string) => void
 }
 
-function SmallSquares({onColorClick}: SmallSquaresProps) {
+function SmallSquares({backgroundColor, onClick}: SmallSquareProps) {
+    const colors = ["red", "blue", "green", "yellow", "black", "brown"]
 
+    const SmallButtons = colors.map(color =>
+        <button type={"button"}
+                key={color}
+                style={{
+                    backgroundColor: color,
+                border: color === backgroundColor ? "5px solid rgba(55, 65, 81, 0.3)" : "5px solid white"}}
+                onClick={() => onClick(color)}></button>)
     return (
         <div className={"small-container"}>
-        <button id="red-button"
-                type="button"
-                onClick={() => onColorClick("red")}></button>
-        <button id="blue-button"
-                type="button"
-                onClick={() => onColorClick("blue")}></button>
-        <button id="green-button"
-                type="button"
-                onClick={() => onColorClick("green")}
-                ></button>
-        <button id="yellow-button"
-                type="button"
-                onClick={() => onColorClick("yellow")}
-                ></button>
-    </div>
+            {SmallButtons}
+        </div>
+
     )
 }
-
 export default SmallSquares
-
